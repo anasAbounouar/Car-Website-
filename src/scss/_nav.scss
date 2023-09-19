@@ -1,0 +1,46 @@
+/* start nav  */
+@use "./mixin" as *;
+// .navbar {
+  
+// }
+@include breakpoint('lg') {
+  .navbar {
+    background: linear-gradient(#033f4776, #000000c7), url("@/assets/sidebar-image.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: var(--navbar-width);
+    min-height: 100vh;
+    .container {
+      display: flex;
+      flex-direction: column;
+      .navbar-nav  {
+        flex-direction: column!important;
+      }
+    }
+    ul {
+      gap: 30px;
+    }
+  }
+}
+@media (max-width:991px) {
+  .navbar {
+    background: linear-gradient(#033f4776, #000000c7)
+  }
+  
+}
+.navbar {
+  position: fixed !important;
+  z-index: 99;
+  
+    a {
+      color: white!important;
+      font-size: bold!important;
+      font-weight: 700;
+    text-transform: uppercase;
+    }
+
+    svg{
+      max-height: 40px;
+    }
+}
