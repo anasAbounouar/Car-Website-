@@ -25,9 +25,21 @@
     <div id="presentation">
       <div class="container">
         <!-- {{ this.car.items }} -->
+        <div class="row my-3">
+          <div class="col-sm-10 col-md-4">
+            <div class="search-container">
+              <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="Rechercher..."
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
         <div class="row g-4">
           <div
-            v-for="item in this.car.items"
+            v-for="item in this.filteredCar"
             :key="item.id"
             class="col-sm-12 col-md-6 col-lg-4"
           >
@@ -46,6 +58,9 @@
               </div>
             </div>
           </div>
+          <div class="centering p-3" v-if="this.filteredCar == ''">
+            <div class="fw-13 p-3">Pas de resultat :(</div>
+          </div>
         </div>
       </div>
     </div>
@@ -58,6 +73,7 @@ export default {
   data() {
     return {
       carName: this.$route.params.id,
+      searchQuery: "",
       carItems: [
         {
           name: "Renault",
@@ -87,6 +103,24 @@ export default {
               img: require("@/assets/renaut-img/renault4-clio 4.jpg"),
               description: " Renault parchoc piasa",
             },
+            {
+              id: 4,
+              title: "Clio4",
+              img: require("@/assets/renaut-img/renault4-clio 4.jpg"),
+              description: " Renault retro piasa",
+            },
+            {
+              id: 5,
+              title: "Clio4",
+              img: require("@/assets/renaut-img/renault4-clio 4.jpg"),
+              description: " Renault piece piasa",
+            },
+            {
+              id: 6,
+              title: "Clio4",
+              img: require("@/assets/renaut-img/renault4-clio 4.jpg"),
+              description: " Renault parchoc piasa 4",
+            },
           ],
         },
       ],
@@ -97,6 +131,18 @@ export default {
       return this.carItems.find((element) => {
         return this.carName === element.name;
       });
+    },
+    filteredCar() {
+      if (this.searchQuery === "") {
+        return this.car.items; // Use this.car instead of this.cars
+      } else {
+        const regex = new RegExp(this.searchQuery, "gi"); // Use new RegExp() instead of new regex()
+        return this.car.items.filter((element) => {
+          return (
+            regex.test(element.title) || regex.test(element.description) // Use test() instead of match() and fix the condition
+          );
+        });
+      }
     },
   },
 };
