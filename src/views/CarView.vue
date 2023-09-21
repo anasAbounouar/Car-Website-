@@ -197,11 +197,13 @@ export default {
       transition: 0.3s;
     }
     &:hover {
-      &::before {
-        width: 100%;
-      }
-      img {
-        transform: scale(1.1);
+      @media (min-width: 991px) {
+        &::before {
+          width: 100%;
+        }
+        img {
+          transform: scale(1.1);
+        }
       }
     }
     .image-container {

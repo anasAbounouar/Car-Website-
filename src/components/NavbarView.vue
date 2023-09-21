@@ -16,10 +16,17 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <router-link to="/">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Acceuil</a
+                >
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a
+                class="nav-link"
+                href="https://wa.me/2120662379473"
+                target="_blank"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="67"
@@ -39,7 +46,10 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a
+                class="nav-link"
+                href="https://www.facebook.com/biggie.small.75"
+                target="_blank"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="67"
@@ -59,7 +69,10 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a
+                class="nav-link"
+                href="https://www.instagram.com/sam_automobil"
+                target="_blank"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="67"
